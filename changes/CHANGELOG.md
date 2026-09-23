@@ -1,5 +1,31 @@
 # Railway Project Hub Changelog
 
+## 2026-09-23 — MotionLab duplicate cleanup approved
+
+Applications: MotionLab, ReturnReview
+
+Target:
+- non-canonical service: `app01-motionlab`
+- service ID: `25cc6232-ed7e-42fd-94e8-d180e641607f`
+- project: ReturnReview
+
+Pre-deletion verification:
+- canonical standalone MotionLab project exists and is healthy
+- canonical MotionLab service ID: `048331c3-43df-4bbb-a1a5-1cea4adcfc5d`
+- both services deploy from `Rishikeshsanin/animation-website`
+- duplicate has no custom variables/secrets
+- duplicate has no volume, database, bucket, cron, or custom domain
+- duplicate has no unique persistent data
+- ReturnReview API/web have no explicit dependency on the duplicate
+- duplicate has no explicit dependency on ReturnReview
+- duplicate configuration/domain/deployment identity is already captured in `registry/resources.json`
+
+User authorization:
+Explicitly approved deletion after confirming it is a duplicate and that the canonical/original copy is preserved.
+
+Planned action:
+Delete only the non-canonical `app01-motionlab` service, then verify standalone MotionLab and ReturnReview API/web remain healthy. Misplaced Hub metadata is **not** part of this deletion.
+
 ## 2026-09-23 — Canonical Hub v1 established
 
 Application: Hub governance
