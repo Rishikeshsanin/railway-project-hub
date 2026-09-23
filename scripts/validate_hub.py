@@ -39,7 +39,7 @@ def main():
         "READ THIS BEFORE ANY RAILWAY WRITE",
         "Treat every registered application as if it belongs to a different customer",
         "No documentation = no Railway project creation",
-        "READ THAT APP'S OWN README + AGENTS + RAILWAY_HUB_RULES",
+        "READ THAT APP'S OWN README + AGENTS + RAILWAY_HUB_RULES.md",
     ]:
         assert phrase in readme, f"README hard-gate phrase missing: {phrase}"
 
