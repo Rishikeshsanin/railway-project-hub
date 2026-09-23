@@ -11,16 +11,18 @@ Canonical model:
 ~~~text
 Railway account
 │
-├── Governance: Rishikeshsanin/railway-project-hub
-│
-├── MotionLab Railway Project
-│   └── MotionLab resources
+├── Railway Project Hub
+│   └── governance-only Railway project; no app runtime
 │
 ├── ReturnReview Railway Project
 │   └── ReturnReview resources
 │
-└── Future App Railway Project
+└── Future active App Railway Project
     └── that app's resources
+
+Archived source
+└── MotionLab
+    └── GitHub source + restore snapshot; no active Railway runtime
 ~~~
 
 ## Isolation boundary
@@ -40,7 +42,9 @@ without requiring changes to another application.
 
 The canonical Hub is this GitHub repository.
 
-A dedicated Railway runtime project is not required for governance. If one is ever created, it must remain governance-only and must not become a container for unrelated application runtimes.
+A dedicated Railway project now exists for governance visibility in the Railway dashboard. It is named `Railway Project Hub` and must remain empty of application runtime resources.
+
+Canonical governance still lives in this GitHub repository. The Railway Hub project is a governance-only container and must not host app services, databases, volumes, buckets, or shared application secrets.
 
 ## Registry model
 
@@ -109,10 +113,13 @@ Railway governance
     └── immutable history
 
 Railway runtime
-├── MotionLab       → isolated project
-├── ReturnReview    → isolated project
-├── App 03          → isolated project
-└── App NN          → isolated project
+├── Railway Project Hub → governance-only; 0 app services
+├── ReturnReview        → isolated active app project
+├── App 03              → isolated future app project
+└── App NN              → isolated future app project
+
+Archived
+└── MotionLab            → source preserved; no active Railway project
 ~~~
 
 New apps extend the registry; they do not redesign this structure.
@@ -120,10 +127,20 @@ New apps extend the registry; they do not redesign this structure.
 ## Current applications
 
 App 01: MotionLab
-- canonical Railway Project: MotionLab
+- status: archived
+- active Railway Project: none
+- source/restore state: preserved
 
 App 02: ReturnReview
+- status: active
 - canonical Railway Project: ReturnReview
+
+Governance project:
+- Railway Project Hub
+- project ID: `917d84ff-5ef4-4d64-9629-b731ab79d67b`
+- app runtime services: 0
+
+The governance project reuses the former MotionLab project container after verified retirement. This lifecycle transition is recorded explicitly and is not a cross-app runtime dependency.
 
 ## Historical migration residue
 
