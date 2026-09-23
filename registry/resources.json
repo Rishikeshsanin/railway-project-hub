@@ -78,8 +78,10 @@
       "source_repository": "Rishikeshsanin/animation-website",
       "public_domain": "app01-motionlab-production.up.railway.app",
       "canonical": false,
-      "status": "do_not_touch_until_cleanup_approved",
-      "reason": "Duplicate created during abandoned shared-runtime Hub experiment."
+      "status": "removed_verified",
+      "reason": "Duplicate created during abandoned shared-runtime Hub experiment.",
+      "removed_at": "2026-09-23",
+      "cleanup_result": "Safely deleted after dependency audit and explicit user approval. Canonical standalone MotionLab remained healthy; ReturnReview API/web remained healthy."
     },
     {
       "type": "project_metadata",
