@@ -89,25 +89,13 @@ The Hub must never become a dumping ground for unrelated application services, d
 
 The machine-readable source of truth is registry/apps.json.
 
-## Current known migration residue
+## Migration cleanup status
 
-An earlier Hub experiment created an extra app01-motionlab service inside the ReturnReview Railway project and project-level Hub metadata there.
+An earlier Hub experiment created an extra app01-motionlab service inside the ReturnReview Railway project plus project-level Hub metadata there.
 
-These resources are **not canonical** and are intentionally **not being deleted yet**.
+The duplicate app01-motionlab service was audited, documented, explicitly approved for deletion, removed, and post-verified on 2026-09-23. Its historical identity remains in registry/resources.json with status removed_verified.
 
-They must go through:
-
-~~~text
-inspect
-→ document
-→ verify ownership/dependencies
-→ confirm canonical replacement is healthy
-→ disable where safe
-→ verify again
-→ explicit destructive approval
-→ delete
-→ final audit
-~~~
+Three old project-level Hub metadata entries remain inside ReturnReview. They are **not canonical** and must not be deleted casually. Their cleanup requires a separate review and explicit approval.
 
 See docs/recovery.md and changes/CHANGELOG.md.
 
