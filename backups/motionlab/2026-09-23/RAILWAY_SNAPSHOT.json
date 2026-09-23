@@ -1,0 +1,61 @@
+{
+  "snapshot_version": 1,
+  "captured_at": "2026-09-23",
+  "purpose": "Pre-retirement backup before replacing the MotionLab Railway project slot with a governance-only Railway Project Hub project.",
+  "source_repository": "https://github.com/Rishikeshsanin/animation-website",
+  "source_main_commit": "85e64bd1dd67148893290c5862a1187567b7e54e",
+  "source_archive_branch": "archive/pre-railway-retirement-2026-09-23",
+  "railway": {
+    "project": {
+      "name": "MotionLab",
+      "id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
+      "workspace": "rishikeshsanin's Projects"
+    },
+    "environment": {
+      "name": "production",
+      "id": "bca2ecae-b4dd-4047-87da-428b96be0270"
+    },
+    "service": {
+      "name": "motionlab",
+      "id": "048331c3-43df-4bbb-a1a5-1cea4adcfc5d",
+      "source_repository": "Rishikeshsanin/animation-website",
+      "source_branch": "main",
+      "source_deployed_commit": "b76e9e3fa42db87d73d90fcb5ca56891481f743f",
+      "builder": "RAILPACK",
+      "build_environment": "V3",
+      "runtime": "V2",
+      "region": "sfo",
+      "replicas": 1,
+      "cron": null,
+      "custom_variable_names": [],
+      "volume_mounts": [],
+      "buckets": [],
+      "database_resources": [],
+      "custom_domains": [],
+      "service_domain": "motionlab-production-2310.up.railway.app",
+      "service_domain_id": "44dbc758-dcbb-4e37-8425-98c74b5b5e9d"
+    },
+    "deployments": [
+      {
+        "id": "76431165-dded-4251-ae7b-f4e78b48a903",
+        "status": "SUCCESS",
+        "commit": "b76e9e3fa42db87d73d90fcb5ca56891481f743f",
+        "reason": "deploy"
+      },
+      {
+        "id": "62466f53-6c9d-4c1c-acaf-b1cf9ae120d0",
+        "status": "REMOVED",
+        "commit": "fc0d63fc895994d4a6d95a93b89413f6a60444f4",
+        "reason": "redeploy"
+      },
+      {
+        "id": "cef4d750-16e1-40a2-8f3d-c4fe7e44bc32",
+        "status": "REMOVED",
+        "commit": "fc0d63fc895994d4a6d95a93b89413f6a60444f4",
+        "reason": "deploy"
+      }
+    ],
+    "secrets_stored_in_backup": false,
+    "persistent_data_present": false
+  }
+}
