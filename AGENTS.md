@@ -22,6 +22,20 @@ Treat every registered application as a separate customer.
 
 Authorization to work on App 01 does not authorize work on App 02, App 03, or Hub-wide infrastructure.
 
+## Registry / Live-State Mismatch
+
+A disagreement between Hub documentation/registry and live Railway state is a mandatory STOP condition.
+
+Do not guess which side is correct and do not "fix" either side automatically.
+
+Required response:
+1. stop all writes,
+2. inspect Railway read-only,
+3. verify IDs, repositories, domains, deployments, and change history,
+4. reconcile the declared and observed states,
+5. verify again,
+6. only then continue.
+
 ## Destructive changes
 
 Deleting projects, services, domains, databases, volumes, or persistent data; changing production networking; rotating critical secrets; or removing migration residue requires:
@@ -46,6 +60,12 @@ No new Railway application project may be created until:
 - Hub registry entry is prepared
 - expected Railway resources are documented
 - architecture/resource review is complete
+
+## Governance v1.0 freeze
+
+The Railway Project Hub governance architecture is frozen at v1.0.
+
+Normal application work must not redesign the Hub, weaken immutable invariants, or introduce shared-runtime shortcuts. A genuine governance change requires a deliberate versioned Hub change.
 
 ## Change discipline
 

@@ -52,5 +52,9 @@
       "shared_resources": [],
       "governance_doc": "apps/app02-returnreview.md"
     }
-  ]
+  ],
+  "governance_version": "1.0",
+  "governance_status": "frozen",
+  "governance_frozen_at": "2026-09-23",
+  "reconciliation_policy": "Mismatch between declared registry/documentation and live Railway state is a STOP condition requiring read-only investigation and reconciliation."
 }

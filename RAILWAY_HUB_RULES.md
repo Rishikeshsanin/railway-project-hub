@@ -25,7 +25,22 @@ Everything else is out of scope.
 
 Isolation > Security > Recoverability > Maintainability > Convenience
 
-## 4. Read-first gate
+## 4. Immutable Safety Invariants
+
+The following rules are constitutional and must not be weakened for convenience:
+
+1. Every production application has one canonical Railway Project.
+2. Applications do not silently share runtime resources.
+3. The Hub does not host application runtime services.
+4. Credentials use minimum required scope.
+5. Ownership is never inferred from naming alone.
+6. Destructive operations require ownership, dependency, and recovery verification.
+7. Existing data is preserved unless explicit destructive authorization is given.
+8. Registry ownership is recorded only after verification against Railway.
+9. Removed resources remain historically recorded as removed/verified.
+10. Declared/live-state mismatches stop all writes until reconciled.
+
+## 5. Read-first gate
 
 Before any write:
 1. Read README.md.
@@ -39,7 +54,7 @@ Before any write:
 9. Review rollback.
 10. Only then make the scoped change.
 
-## 5. No cross-app assumptions
+## 6. No cross-app assumptions
 
 Never reuse, modify, connect, copy, or delete another application's:
 - project
@@ -57,7 +72,7 @@ Never reuse, modify, connect, copy, or delete another application's:
 
 Cross-app dependencies require explicit user authorization and Hub documentation.
 
-## 6. New project hard gate
+## 7. New project hard gate
 
 Documentation and registration come before infrastructure.
 
@@ -73,7 +88,7 @@ No new application Railway project may be created until:
 - database/storage strategy is documented
 - architecture review is complete
 
-## 7. Production safety
+## 8. Production safety
 
 Production is not a sandbox.
 
@@ -86,12 +101,12 @@ Before a production change:
 - deploy the minimum scoped change
 - verify health, logs, endpoint behavior, and main user flow
 
-## 8. Never delete first
+## 9. Never delete first
 
 Use:
 inspect -> document -> verify dependencies -> confirm replacement/backup -> disable when practical -> verify -> explicit destructive approval -> delete -> audit
 
-## 9. Secrets
+## 10. Secrets
 
 Secret values must remain in the owning app's secure Railway configuration or approved secret store.
 
@@ -105,7 +120,7 @@ The Hub may record:
 
 The Hub must never record the secret value.
 
-## 10. Databases and persistent storage
+## 11. Databases and persistent storage
 
 Prefer application-specific databases/storage.
 
@@ -115,7 +130,7 @@ If a shared database is ever intentionally used:
 - cross-app access must be impossible by default
 - ownership and dependency must be registered before use
 
-## 11. Naming
+## 12. Naming
 
 Use deterministic names that include the application identity when ambiguity is possible.
 
@@ -123,14 +138,14 @@ Avoid names such as backend, server, database, test, new, final, or final2.
 
 See docs/naming.md.
 
-## 12. Source control
+## 13. Source control
 
 Every Railway service must be traceable:
 GitHub repository -> branch -> Railway project -> environment -> service
 
 Connecting a different repository to an existing production service requires explicit review.
 
-## 13. Change history
+## 14. Change history
 
 Meaningful infrastructure changes must be recorded in changes/CHANGELOG.md with:
 - date
@@ -142,7 +157,7 @@ Meaningful infrastructure changes must be recorded in changes/CHANGELOG.md with:
 - rollback
 - result
 
-## 14. Incident rule
+## 15. Incident rule
 
 If another app is unexpectedly affected:
 - stop all modifications
@@ -154,13 +169,13 @@ If another app is unexpectedly affected:
 
 Use templates/INCIDENT_TEMPLATE.md.
 
-## 15. Supabase relationship
+## 16. Supabase relationship
 
 Supabase is not a dependency of this Hub.
 
 Supabase Project Hub patterns may inform governance, but Railway uses Railway-native boundaries: projects, environments, services, variables, domains, deployments, networking, volumes, databases, and source connections.
 
-## 16. Historical migration residue
+## 17. Historical migration residue
 
 An earlier shared-runtime experiment temporarily placed a duplicate MotionLab service and Hub metadata inside ReturnReview.
 
@@ -168,6 +183,30 @@ That experiment has been fully cleaned up. The removed resources remain recorded
 
 Historical residue must never be treated as an active resource or reused as a shortcut for a future application.
 
-## 17. Final rule
+## 18. Reconciliation Rule
+
+No single artifact automatically overrides another when declared state and observed Railway infrastructure disagree.
+
+A mismatch is a STOP condition:
+- stop writes,
+- inspect read-only,
+- verify resource IDs and ownership,
+- use repository, domain, deployment, and changelog history as evidence,
+- reconcile the discrepancy,
+- update the appropriate record only after verification,
+- verify again before continuing.
+
+The hierarchy defines information roles, not an automatic winner:
+README → AGENTS/RULES → app registry → resource registry → app docs → live Railway → history/evidence → reconciled state.
+
+## 19. Governance Freeze
+
+Railway Project Hub Governance v1.0 is frozen.
+
+Normal app development must use the existing model instead of redesigning it.
+
+Constitutional/security changes must be deliberate, versioned, documented, CI-validated, and historically recorded. Historical cleanup records must not be rewritten.
+
+## 20. Final rule
 
 Protect every existing application as if it belongs to a different customer.

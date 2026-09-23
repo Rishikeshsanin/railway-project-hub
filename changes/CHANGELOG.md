@@ -1,5 +1,24 @@
 # Railway Project Hub Changelog
 
+## 2026-09-23 — Railway Project Hub Governance v1.0 frozen
+
+Application: Hub governance
+
+Change:
+- added Immutable Safety Invariants as constitutional rules
+- added explicit declared-state/live-Railway reconciliation hierarchy
+- defined registry/live mismatch as a STOP condition
+- added governance version metadata and freeze status
+- updated architecture to remove stale "current residue" wording
+- added versioning policy
+- strengthened Hub validator to enforce v1.0 invariants and frozen status
+
+Reason:
+Finalize the governance architecture so future applications use a stable, scalable model rather than redesigning the Hub during normal development.
+
+Result:
+Pending CI/merge at time of this entry. Historical MotionLab/ReturnReview cleanup records remain unchanged.
+
 ## 2026-09-23 — Legacy ReturnReview Hub metadata cleanup completed
 
 Application: ReturnReview / Hub governance
