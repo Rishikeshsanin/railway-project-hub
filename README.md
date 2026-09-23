@@ -161,7 +161,7 @@ The Hub must never become a dumping ground for unrelated application services, d
 | App 01 | motionlab | Rishikeshsanin/animation-website | MotionLab | active |
 | App 02 | return_review | Rishikeshsanin/ReturnReview | ReturnReview | active |
 
-The machine-readable source of truth is registry/apps.json.
+The machine-readable **canonical declared application registry** is `registry/apps.json`. It does not automatically override observed live Railway state; mismatches follow the reconciliation STOP rule above.
 
 ## Migration cleanup status
 
