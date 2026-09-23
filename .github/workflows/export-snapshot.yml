@@ -1,0 +1,29 @@
+name: Export Governance Snapshot
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/export-snapshot.yml"
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact PR head
+        uses: actions/checkout@v4
+
+      - name: Build export directory
+        shell: bash
+        run: |
+          mkdir -p export/railway-project-hub-v1.0
+          rsync -a --exclude '.git' --exclude 'export' ./ export/railway-project-hub-v1.0/
+          printf '%s\n' "Canonical main base: ef4497e7799606603737d26d141c401c5b7c0cd0" > export/railway-project-hub-v1.0/SNAPSHOT_COMMIT.txt
+          printf '%s\n' "Governance: v1.0 — FROZEN" >> export/railway-project-hub-v1.0/SNAPSHOT_COMMIT.txt
+
+      - name: Upload exact repository snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: Railway_Project_Hub_Governance_v1.0_Exact_Snapshot
+          path: export/railway-project-hub-v1.0
+          if-no-files-found: error
+          retention-days: 7
