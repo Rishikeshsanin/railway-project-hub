@@ -16,6 +16,7 @@ Do not create this app's Railway Project until every required field below is com
 - [ ] README.md
 - [ ] AGENTS.md
 - [ ] RAILWAY_HUB_RULES.md
+- [ ] .github/workflows/validate-railway-governance.yml (or an equivalent mandatory CI gate)
 
 ## Proposed Railway project
 - Project name:
