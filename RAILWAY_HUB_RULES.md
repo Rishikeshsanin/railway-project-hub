@@ -160,13 +160,13 @@ Supabase is not a dependency of this Hub.
 
 Supabase Project Hub patterns may inform governance, but Railway uses Railway-native boundaries: projects, environments, services, variables, domains, deployments, networking, volumes, databases, and source connections.
 
-## 16. Current migration residue
+## 16. Historical migration residue
 
-The ReturnReview Railway project currently contains an extra app01-motionlab service and earlier Hub metadata created during an abandoned shared-runtime experiment.
+An earlier shared-runtime experiment temporarily placed a duplicate MotionLab service and Hub metadata inside ReturnReview.
 
-Those resources are registered as migration residue, not canonical architecture.
+That experiment has been fully cleaned up. The removed resources remain recorded in registry/resources.json and changes/CHANGELOG.md as historical `removed_verified` entries.
 
-Do not remove them until the documented cleanup gate is satisfied.
+Historical residue must never be treated as an active resource or reused as a shortcut for a future application.
 
 ## 17. Final rule
 
