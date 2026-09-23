@@ -1,5 +1,21 @@
 # Railway Project Hub Changelog
 
+## 2026-09-23 — MotionLab pre-retirement backup prepared
+
+Application: MotionLab
+
+Change:
+- created permanent source archive branch at commit `85e64bd1dd67148893290c5862a1187567b7e54e`
+- captured non-secret Railway project/service/environment/domain/deployment metadata
+- documented a restore procedure
+- verified no custom app secrets, database, volume, bucket, cron, custom domain, or unique Railway-persistent data
+
+Reason:
+Preserve MotionLab before retiring its Railway project to free account capacity for a governance-only Railway Project Hub project.
+
+Result:
+Backup prepared. MotionLab Railway project remains active until the separately authorized retirement step.
+
 ## 2026-09-23 — v1.0 final consistency clarification
 
 Application: Hub governance
