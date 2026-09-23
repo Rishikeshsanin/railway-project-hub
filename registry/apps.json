@@ -5,30 +5,40 @@
   "next_app_number": 3,
   "railway_hub_runtime_project": {
     "required": false,
-    "status": "not_provisioned",
-    "note": "Canonical governance is this GitHub repository. A Railway runtime project is not required for governance and is currently not provisioned."
+    "status": "active",
+    "name": "Railway Project Hub",
+    "id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
+    "environment": {
+      "name": "production",
+      "id": "bca2ecae-b4dd-4047-87da-428b96be0270"
+    },
+    "purpose": "Governance-only visual/control project. Canonical governance remains in the GitHub Hub repository.",
+    "application_runtime_allowed": false,
+    "expected_service_count": 0,
+    "note": "This project container was formerly named MotionLab. The MotionLab runtime was backed up and retired before the container was repurposed."
   },
   "apps": [
     {
       "app_number": 1,
       "slug": "motionlab",
       "display_name": "MotionLab",
-      "status": "active",
+      "status": "archived",
       "repository": "https://github.com/Rishikeshsanin/animation-website",
-      "railway_project": {
-        "name": "MotionLab",
-        "id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
-        "environment": {
-          "name": "production",
-          "id": "bca2ecae-b4dd-4047-87da-428b96be0270"
-        }
-      },
-      "canonical_services": [
-        "motionlab"
-      ],
+      "canonical_services": [],
       "cross_app_dependencies": [],
       "shared_resources": [],
-      "governance_doc": "apps/app01-motionlab.md"
+      "governance_doc": "apps/app01-motionlab.md",
+      "archive": {
+        "archived_at": "2026-09-23",
+        "reason": "Railway runtime retired after verified backup so the empty project container could be repurposed as the governance-only Railway Project Hub.",
+        "source_repository": "https://github.com/Rishikeshsanin/animation-website",
+        "preserved_main_commit": "85e64bd1dd67148893290c5862a1187567b7e54e",
+        "source_archive_branch": "archive/pre-railway-retirement-2026-09-23",
+        "railway_backup_path": "backups/motionlab/2026-09-23/",
+        "former_project_id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
+        "former_service_id": "048331c3-43df-4bbb-a1a5-1cea4adcfc5d",
+        "restore_requires_new_isolated_project": true
+      }
     },
     {
       "app_number": 2,
