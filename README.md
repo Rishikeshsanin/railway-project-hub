@@ -95,7 +95,9 @@ An earlier Hub experiment created an extra app01-motionlab service inside the Re
 
 The duplicate app01-motionlab service was audited, documented, explicitly approved for deletion, removed, and post-verified on 2026-09-23. Its historical identity remains in registry/resources.json with status removed_verified.
 
-Three old project-level Hub metadata entries remain inside ReturnReview. They are **not canonical** and must not be deleted casually. Their cleanup requires a separate review and explicit approval.
+The three old project-level Hub metadata entries inside ReturnReview were also reviewed and removed on 2026-09-23 after confirming that canonical governance lives in this repository and the application runtime does not depend on those flags.
+
+The abandoned shared-runtime experiment is now fully cleaned up. Historical identities remain preserved in registry/resources.json and changes/CHANGELOG.md.
 
 See docs/recovery.md and changes/CHANGELOG.md.
 
