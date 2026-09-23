@@ -24,7 +24,7 @@ Rollback:
 Git history.
 
 Result:
-Pending merge/verification of governance v1 branch.
+Governance v1 validation passed in GitHub Actions and PR #1 was squash-merged to main as commit 71bc5ac4264eb2c13afb2c073043c59f7ac4d102.
 
 ## 2026-09-23 — Shared-runtime experiment documented
 
