@@ -1,5 +1,7 @@
 # Railway Project Hub
 
+> **Railway Project Hub Governance v1.0 — FROZEN**
+>
 > **READ THIS BEFORE ANY RAILWAY WRITE.**
 
 This repository is the canonical governance, registry, safety, and recovery source of truth for Railway applications owned by this account.
@@ -25,6 +27,78 @@ Maintainability
   >
 Convenience
 ~~~
+
+## Immutable Safety Invariants
+
+The following rules are constitutional. They must never be weakened for convenience:
+
+1. Every production application has one canonical Railway Project.
+2. An application must never silently share another application's runtime resources.
+3. The Hub itself must not host application runtime services.
+4. Application credentials are scoped to the minimum required application/resource.
+5. No agent may infer ownership from naming alone; ownership must be verified from IDs, registry records, app documentation, and live Railway state.
+6. No destructive operation may be performed without verifying ownership, dependencies, and rollback/recovery options.
+7. Existing application data must be preserved unless explicit destructive authorization is given.
+8. Registry state must never claim a resource belongs to an application until the Railway resource has been verified.
+9. Removed resources remain historically recorded with a removed/verified status.
+10. When documentation and live Railway state disagree, stop all writes and reconcile the discrepancy before making changes.
+
+These invariants outrank convenience and normal application-development requests.
+
+## Declared State vs Live Railway — Reconciliation Rule
+
+> **No single artifact automatically overrides another when declared state and observed infrastructure disagree. A mismatch creates a STOP condition requiring read-only investigation and reconciliation.**
+
+The information model is:
+
+~~~text
+README.md
+   ↓ governance / constitutional policy
+
+AGENTS.md + RAILWAY_HUB_RULES.md
+   ↓ operational behavior
+
+registry/apps.json
+   ↓ declared application identity / ownership
+
+registry/resources.json
+   ↓ declared resource ownership / lifecycle
+
+apps/appNN-<slug>.md
+   ↓ application-specific operational context
+
+Live Railway state
+   ↓ observed infrastructure reality
+
+Git history / deployment history / changelog
+   ↓ evidence for reconciliation
+
+RECONCILED STATE
+~~~
+
+This is a hierarchy of **information roles**, not an automatic winner order.
+
+If any mismatch is detected:
+
+~~~text
+STOP WRITES
+   ↓
+INSPECT READ-ONLY
+   ↓
+VERIFY PROJECT / ENVIRONMENT / SERVICE IDs
+   ↓
+VERIFY REPOSITORY / DOMAIN / DEPLOYMENT HISTORY
+   ↓
+DETERMINE CORRECT STATE
+   ↓
+RECONCILE REGISTRY / DOCUMENTATION
+   ↓
+VERIFY AGAIN
+   ↓
+ONLY THEN CONTINUE
+~~~
+
+Neither stale documentation nor live infrastructure is allowed to overwrite the other silently.
 
 ## Mandatory read-first gate
 
@@ -188,6 +262,23 @@ railway-project-hub/
     ├── secrets.md
     └── lifecycle.md
 ~~~
+
+## Governance Freeze and Versioning
+
+**Current governance version: v1.0 — frozen.**
+
+The architecture and immutable invariants are not redesigned during normal application development.
+
+Future applications (App 03, App 04, and beyond) must use this governance model as-is.
+
+A governance change is allowed only when there is a genuine security, safety, recoverability, or platform-model reason. Any such change must:
+- be deliberate and documented,
+- preserve historical records,
+- update the governance version,
+- pass Hub CI,
+- and be reviewed before becoming canonical.
+
+Small clarifications that do not weaken invariants may become v1.0.x documentation patches. Material policy changes require v1.1 or v2.0.
 
 ## Relationship to Supabase
 
