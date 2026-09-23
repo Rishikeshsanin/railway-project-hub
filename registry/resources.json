@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-23",
+  "updated_at": "2026-09-24",
   "projects": [
     {
       "owner_app": "return_review",
@@ -50,10 +50,50 @@
       ]
     }
   ],
-  "databases": [],
-  "volumes": [],
+  "databases": [
+    {
+      "owner_app": "return_review",
+      "canonical": true,
+      "project_id": "3b5a435b-a0ca-43c0-85c0-9783073a8cd4",
+      "environment_id": "c587f082-f4c9-4b2a-96e8-946f9929d7ce",
+      "service_name": "Postgres",
+      "service_id": "02cc5aaf-b427-48d8-bfdd-488a1d714daf",
+      "engine": "postgresql",
+      "source_image": "ghcr.io/railwayapp-templates/postgres-ssl:18",
+      "private_network_endpoint": "postgres",
+      "public_domain": null,
+      "status": "verified"
+    }
+  ],
+  "volumes": [
+    {
+      "owner_app": "return_review",
+      "canonical": true,
+      "project_id": "3b5a435b-a0ca-43c0-85c0-9783073a8cd4",
+      "environment_id": "c587f082-f4c9-4b2a-96e8-946f9929d7ce",
+      "service_id": "02cc5aaf-b427-48d8-bfdd-488a1d714daf",
+      "volume_name": "postgres-volume",
+      "volume_id": "6114b26f-88d5-40d9-ad53-b1de917bc703",
+      "mount_path": "/var/lib/postgresql/data",
+      "status": "verified"
+    }
+  ],
   "shared_resources": [],
   "migration_residue": [
+    {
+      "type": "database_service",
+      "project_id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
+      "environment_id": "bca2ecae-b4dd-4047-87da-428b96be0270",
+      "service_name": "Postgres",
+      "service_id": "0e2a45db-b528-462b-b85b-ee56f9d960de",
+      "volume_name": "postgres-volume",
+      "volume_id": "49d2eca8-6585-4ca5-ad6f-7f245eca5f78",
+      "canonical": false,
+      "status": "approved_pending_removal",
+      "reason": "Accidentally created inside the governance-only Railway Project Hub instead of the isolated ReturnReview project.",
+      "dependency_assessment": "No public domain; no ReturnReview API reference; no marker-service reference; no application data intentionally written.",
+      "user_authorization": "Explicitly approved deletion on 2026-09-24 with instruction to delete nothing else."
+    },
     {
       "type": "service",
       "project_id": "3b5a435b-a0ca-43c0-85c0-9783073a8cd4",
