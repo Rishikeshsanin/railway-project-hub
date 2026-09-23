@@ -40,12 +40,9 @@ The MotionLab repository contains:
 
 These must be read before Railway writes.
 
-## Known duplicate
-A duplicate service named app01-motionlab exists inside the ReturnReview Railway project from an earlier experiment.
+## Historical duplicate cleanup
+A non-canonical service named app01-motionlab previously existed inside the ReturnReview Railway project from an earlier experiment.
 
-It is not canonical.
+It was audited and safely deleted on 2026-09-23 after explicit approval. The standalone MotionLab Railway project remained healthy and is the canonical deployment.
 
-Do not delete or repurpose it until the cleanup procedure in docs/recovery.md has been approved and completed.
-
-## Recovery source
-The standalone MotionLab Railway project is the canonical deployment and must remain healthy before any duplicate cleanup.
+The removed service remains recorded historically in registry/resources.json; its app number/resource identity must not be reused as if it were a new canonical service.
