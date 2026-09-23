@@ -1,5 +1,27 @@
 # Railway Project Hub Changelog
 
+## 2026-09-23 — ReturnReview marker added to Railway Project Hub
+
+Application: ReturnReview / Hub governance
+
+Created:
+- empty marker service: `app02-returnreview`
+- marker service ID: `4dabbfb9-e1be-4247-8287-abc78f32ad71`
+
+Verified marker constraints:
+- no source attached
+- no deployment
+- no domain
+- no custom variables/secrets
+- no volume
+- no cron
+- no application runtime role
+
+Real ReturnReview runtime remains isolated in project `3b5a435b-a0ca-43c0-85c0-9783073a8cd4` with `returnreview-api` and `returnreview-web`, both verified healthy.
+
+Result:
+ReturnReview is now visually represented inside Railway Project Hub without duplicating or moving its runtime.
+
 ## 2026-09-23 — Non-running Hub marker policy added
 
 Application: Hub governance / ReturnReview
