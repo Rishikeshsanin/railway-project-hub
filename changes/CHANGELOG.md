@@ -13,7 +13,7 @@ Reason:
 Remove ambiguity without changing the frozen v1.0 architecture or immutable invariants.
 
 Result:
-Pending validation/merge at time of this entry.
+Hub validation passed. This was a clarification-only patch; the frozen v1.0 architecture and immutable invariants were unchanged.
 
 ## 2026-09-23 — Railway Project Hub Governance v1.0 frozen
 
