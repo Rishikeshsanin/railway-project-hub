@@ -57,6 +57,7 @@ No new Railway application project may be created until:
 - app README exists
 - app AGENTS.md exists
 - app RAILWAY_HUB_RULES.md exists
+- app governance CI exists (or an equivalent mandatory gate)
 - Hub registry entry is prepared
 - expected Railway resources are documented
 - architecture/resource review is complete

@@ -1,5 +1,20 @@
 # Railway Project Hub Changelog
 
+## 2026-09-23 — v1.0 final consistency clarification
+
+Application: Hub governance
+
+Change:
+- replaced ambiguous "machine-readable source of truth" wording with "canonical declared application registry"
+- explicitly tied registry declarations to the reconciliation STOP rule
+- aligned the app template and agent contract with the already-required app governance CI gate
+
+Reason:
+Remove ambiguity without changing the frozen v1.0 architecture or immutable invariants.
+
+Result:
+Hub validation passed. This was a clarification-only patch; the frozen v1.0 architecture and immutable invariants were unchanged.
+
 ## 2026-09-23 — Railway Project Hub Governance v1.0 frozen
 
 Application: Hub governance
