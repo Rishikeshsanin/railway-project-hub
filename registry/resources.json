@@ -24,13 +24,16 @@
       "custom_variable_names": [
         "RETURNREVIEW_ALLOWED_ORIGINS",
         "RETURNREVIEW_CV_MODEL_VERSION",
+        "RETURNREVIEW_DATABASE_SCHEMA",
         "RETURNREVIEW_DATABASE_URL",
         "RETURNREVIEW_DEMO_MODE",
         "RETURNREVIEW_ENV",
+        "RETURNREVIEW_GEMINI_MODEL",
         "RETURNREVIEW_LLM_ENABLED",
         "RETURNREVIEW_MAX_UPLOAD_MB",
         "RETURNREVIEW_STORAGE_DIR"
-      ]
+      ],
+      "outbound_ipv6_enabled": true
     },
     {
       "owner_app": "return_review",
