@@ -38,10 +38,14 @@ Completed checks:
 9. ReturnReview API/web verified healthy afterward
 10. registry/changelog updated
 
-Still pending separately:
-- review the three misplaced Hub metadata entries inside ReturnReview
-- obtain explicit confirmation before deleting any of that metadata
-- run a final metadata cleanup audit afterward
+Project-metadata cleanup — completed:
+- hub.apps removed from ReturnReview
+- hub.architecture_version removed from ReturnReview
+- hub.read_me_first removed from ReturnReview
+- ReturnReview verified with zero project-level Hub flags afterward
+- ReturnReview API/web remained healthy
+- standalone MotionLab remained healthy
+- no pending ReturnReview changes remained
 
 ## Database rollback
 
