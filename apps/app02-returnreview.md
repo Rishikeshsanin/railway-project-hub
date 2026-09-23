@@ -18,11 +18,14 @@
 - Branch: main
 - Domain: https://returnreview-api-production.up.railway.app
 - Health path: /health
+- Outbound IPv6: enabled (ReturnReview API only; verified 2026-09-23)
 
 Registered custom variable names:
 - RETURNREVIEW_ALLOWED_ORIGINS
 - RETURNREVIEW_CV_MODEL_VERSION
 - RETURNREVIEW_DATABASE_URL
+- RETURNREVIEW_GEMINI_MODEL
+- RETURNREVIEW_DATABASE_SCHEMA
 - RETURNREVIEW_DEMO_MODE
 - RETURNREVIEW_ENV
 - RETURNREVIEW_LLM_ENABLED
@@ -43,7 +46,7 @@ Registered custom variable names:
 ## Persistence
 No active Railway volume is registered.
 
-Hosted SQLite/uploads are currently ephemeral and must not be described as durable persistence.
+Hosted SQLite/uploads are currently ephemeral and must not be described as durable persistence. The API is network-ready for direct Supabase Postgres over outbound IPv6, but durable persistence is not active until the dedicated database credential is configured.
 
 ## API registry
 Gemini is intended for the ReturnReview API.
