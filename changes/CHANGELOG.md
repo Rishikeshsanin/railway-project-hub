@@ -1,5 +1,25 @@
 # Railway Project Hub Changelog
 
+## 2026-09-24 — ReturnReview Railway Postgres activated
+
+Application: ReturnReview (App 02)
+
+Change:
+- configured `returnreview-api` to use the canonical ReturnReview Railway Postgres through service-reference variables
+- corrected the SQLAlchemy driver form to `postgresql+psycopg` for the installed Psycopg 3 driver
+- verified production deployment `58933dd2-3255-46ae-960c-33a738690b75` succeeded
+- verified startup reports `database_backend=postgresql` and `durable_persistence=True`
+- verified `/health` and `/readiness` return HTTP 200
+- ReturnReview web remained healthy and unchanged
+
+Remaining persistence proof:
+A real case plus evidence images must survive an API redeploy before the persistence checklist is fully complete.
+
+Accidental Hub Postgres cleanup:
+- only service `0e2a45db-b528-462b-b85b-ee56f9d960de` and volume `49d2eca8-6585-4ca5-ad6f-7f245eca5f78` are staged for removal
+- Railway requires dashboard 2FA to commit that destructive change, so final removal is pending one manual confirmation
+- no other resource is staged for deletion
+
 ## 2026-09-24 — ReturnReview Railway Postgres reconciled before cleanup
 
 Application: ReturnReview (App 02) / Hub governance
