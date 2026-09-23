@@ -64,11 +64,11 @@ The ReturnReview repository contains:
 - RAILWAY_HUB_RULES.md
 - SUPABASE_HUB_RULES.md
 
-## Migration residue inside ReturnReview
-The project currently contains:
-- app01-motionlab duplicate service
-- earlier Hub metadata signals
+## Migration cleanup state
+The non-canonical app01-motionlab duplicate service was safely removed on 2026-09-23 after audit and explicit approval.
 
-These are not ReturnReview application architecture.
+ReturnReview now contains only its canonical runtime services:
+- returnreview-api
+- returnreview-web
 
-Do not touch them during ordinary ReturnReview development. They are governed only by the Hub cleanup process.
+Three earlier Hub metadata signals still remain inside the ReturnReview project. They are not ReturnReview application architecture and must not be touched during ordinary ReturnReview development. Their cleanup is governed separately by the Hub recovery process.
