@@ -15,6 +15,7 @@ The application repository must already contain:
 - [ ] README.md
 - [ ] AGENTS.md
 - [ ] RAILWAY_HUB_RULES.md
+- [ ] .github/workflows/validate-railway-governance.yml (or an equivalent mandatory CI gate)
 
 The files must explicitly identify:
 - app number and slug
@@ -24,6 +25,8 @@ The files must explicitly identify:
 - forbidden cross-app scope
 - secret policy
 - destructive-change policy
+
+The app-side governance CI must fail if any of the three required governance documents are missing.
 
 ## Phase 3 — Hub registration
 Before Railway creation:
