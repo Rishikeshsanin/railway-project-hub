@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-23",
+  "projects": [
+    {
+      "owner_app": "motionlab",
+      "canonical": true,
+      "name": "MotionLab",
+      "project_id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
+      "environment_name": "production",
+      "environment_id": "bca2ecae-b4dd-4047-87da-428b96be0270"
+    },
+    {
+      "owner_app": "return_review",
+      "canonical": true,
+      "name": "ReturnReview",
+      "project_id": "3b5a435b-a0ca-43c0-85c0-9783073a8cd4",
+      "environment_name": "production",
+      "environment_id": "c587f082-f4c9-4b2a-96e8-946f9929d7ce"
+    }
+  ],
+  "services": [
+    {
+      "owner_app": "motionlab",
+      "canonical": true,
+      "project_id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
+      "service_name": "motionlab",
+      "service_id": "048331c3-43df-4bbb-a1a5-1cea4adcfc5d",
+      "source_repository": "Rishikeshsanin/animation-website",
+      "source_branch": "main",
+      "public_domain": "motionlab-production-2310.up.railway.app",
+      "custom_variable_names": []
+    },
+    {
+      "owner_app": "return_review",
+      "canonical": true,
+      "project_id": "3b5a435b-a0ca-43c0-85c0-9783073a8cd4",
+      "service_name": "returnreview-api",
+      "service_id": "15b5ade1-912a-44bf-ae07-e0d21f2278e1",
+      "source_repository": "Rishikeshsanin/ReturnReview",
+      "source_branch": "main",
+      "public_domain": "returnreview-api-production.up.railway.app",
+      "custom_variable_names": [
+        "RETURNREVIEW_ALLOWED_ORIGINS",
+        "RETURNREVIEW_CV_MODEL_VERSION",
+        "RETURNREVIEW_DATABASE_URL",
+        "RETURNREVIEW_DEMO_MODE",
+        "RETURNREVIEW_ENV",
+        "RETURNREVIEW_LLM_ENABLED",
+        "RETURNREVIEW_MAX_UPLOAD_MB",
+        "RETURNREVIEW_STORAGE_DIR"
+      ]
+    },
+    {
+      "owner_app": "return_review",
+      "canonical": true,
+      "project_id": "3b5a435b-a0ca-43c0-85c0-9783073a8cd4",
+      "service_name": "returnreview-web",
+      "service_id": "445fd60b-8e72-49fe-86fb-bf9eeb276546",
+      "source_repository": "Rishikeshsanin/ReturnReview",
+      "source_branch": "main",
+      "root_directory": "/frontend",
+      "public_domain": "returnreview-web-production.up.railway.app",
+      "custom_variable_names": [
+        "NEXT_PUBLIC_API_BASE_URL"
+      ]
+    }
+  ],
+  "databases": [],
+  "volumes": [],
+  "shared_resources": [],
+  "migration_residue": [
+    {
+      "type": "service",
+      "project_id": "3b5a435b-a0ca-43c0-85c0-9783073a8cd4",
+      "service_name": "app01-motionlab",
+      "service_id": "25cc6232-ed7e-42fd-94e8-d180e641607f",
+      "source_repository": "Rishikeshsanin/animation-website",
+      "public_domain": "app01-motionlab-production.up.railway.app",
+      "canonical": false,
+      "status": "do_not_touch_until_cleanup_approved",
+      "reason": "Duplicate created during abandoned shared-runtime Hub experiment."
+    },
+    {
+      "type": "project_metadata",
+      "project_id": "3b5a435b-a0ca-43c0-85c0-9783073a8cd4",
+      "canonical": false,
+      "status": "do_not_touch_until_cleanup_approved",
+      "resources": [
+        {
+          "name": "hub.apps",
+          "id": "2dca752d-81c4-473e-beb6-78fd4426139f"
+        },
+        {
+          "name": "hub.architecture_version",
+          "id": "62320b83-02a4-4ce4-ad2a-851abdc592b9"
+        },
+        {
+          "name": "hub.read_me_first",
+          "id": "ccc6792c-ded9-42a6-b34c-1d0b1cd0db6b"
+        }
+      ],
+      "reason": "Metadata created inside ReturnReview before governance was moved to the canonical independent Hub repository."
+    }
+  ]
+}

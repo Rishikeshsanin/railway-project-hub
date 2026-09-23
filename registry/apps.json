@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-23",
+  "governance_repository": "https://github.com/Rishikeshsanin/railway-project-hub",
+  "next_app_number": 3,
+  "railway_hub_runtime_project": {
+    "required": false,
+    "status": "not_provisioned",
+    "note": "Canonical governance is this GitHub repository. A Railway runtime project is not required for governance and is currently not provisioned."
+  },
+  "apps": [
+    {
+      "app_number": 1,
+      "slug": "motionlab",
+      "display_name": "MotionLab",
+      "status": "active",
+      "repository": "https://github.com/Rishikeshsanin/animation-website",
+      "railway_project": {
+        "name": "MotionLab",
+        "id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
+        "environment": {
+          "name": "production",
+          "id": "bca2ecae-b4dd-4047-87da-428b96be0270"
+        }
+      },
+      "canonical_services": [
+        "motionlab"
+      ],
+      "cross_app_dependencies": [],
+      "shared_resources": []
+    },
+    {
+      "app_number": 2,
+      "slug": "return_review",
+      "display_name": "ReturnReview",
+      "status": "active",
+      "repository": "https://github.com/Rishikeshsanin/ReturnReview",
+      "railway_project": {
+        "name": "ReturnReview",
+        "id": "3b5a435b-a0ca-43c0-85c0-9783073a8cd4",
+        "environment": {
+          "name": "production",
+          "id": "c587f082-f4c9-4b2a-96e8-946f9929d7ce"
+        }
+      },
+      "canonical_services": [
+        "returnreview-api",
+        "returnreview-web"
+      ],
+      "cross_app_dependencies": [],
+      "shared_resources": []
+    }
+  ]
+}

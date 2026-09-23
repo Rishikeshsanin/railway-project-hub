@@ -1,0 +1,32 @@
+name: Validate Hub
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate required files
+        run: |
+          test -f README.md
+          test -f AGENTS.md
+          test -f RAILWAY_HUB_RULES.md
+          test -f registry/apps.json
+          test -f registry/resources.json
+          test -f registry/api-registry.json
+
+      - name: Validate JSON syntax
+        run: |
+          python -m json.tool registry/apps.json > /dev/null
+          python -m json.tool registry/resources.json > /dev/null
+          python -m json.tool registry/api-registry.json > /dev/null
+
+      - name: Validate app registry invariants
+        run: |
+          python -c "import json; d=json.load(open('registry/apps.json')); a=d['apps']; nums=[x['app_number'] for x in a]; slugs=[x['slug'] for x in a]; assert len(nums)==len(set(nums)), 'duplicate app_number'; assert len(slugs)==len(set(slugs)), 'duplicate slug'; assert d['next_app_number']>max(nums), 'next_app_number must exceed registered apps'"
