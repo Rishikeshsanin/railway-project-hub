@@ -1,5 +1,7 @@
 # Railway Project Hub Architecture
 
+**Governance version: v1.0 — FROZEN**
+
 ## Principle
 
 The Hub is a governance/control layer, not a shared runtime.
@@ -50,6 +52,35 @@ registry/api-registry.json owns external API/credential-name relationships.
 
 Human-readable app records live in apps/.
 
+## Governance / Reconciliation Model
+
+~~~text
+README.md
+   ↓ constitutional governance
+
+AGENTS.md + RAILWAY_HUB_RULES.md
+   ↓ operational rules
+
+registry/apps.json
+   ↓ declared app identity / ownership
+
+registry/resources.json
+   ↓ declared Railway resource ownership / lifecycle
+
+apps/appNN-<slug>.md
+   ↓ app-specific operational context
+
+Live Railway state
+   ↓ observed infrastructure
+
+Git history / deployment history / changelog
+   ↓ reconciliation evidence
+
+RECONCILED STATE
+~~~
+
+No artifact automatically wins a disagreement. A mismatch stops writes until read-only investigation establishes and records the reconciled state.
+
 ## Shared infrastructure
 
 Shared infrastructure is exceptional, not default.
@@ -64,6 +95,28 @@ Before a resource becomes shared, document:
 - rollback
 - removal plan
 
+## Frozen v1.0 architecture
+
+The v1.0 architecture is intentionally frozen:
+
+~~~text
+Railway governance
+└── railway-project-hub
+    ├── README / rules / agent contract
+    ├── app + resource registries
+    ├── per-app governance records
+    ├── CI validation
+    └── immutable history
+
+Railway runtime
+├── MotionLab       → isolated project
+├── ReturnReview    → isolated project
+├── App 03          → isolated project
+└── App NN          → isolated project
+~~~
+
+New apps extend the registry; they do not redesign this structure.
+
 ## Current applications
 
 App 01: MotionLab
@@ -72,10 +125,10 @@ App 01: MotionLab
 App 02: ReturnReview
 - canonical Railway Project: ReturnReview
 
-## Current non-canonical residue
+## Historical migration residue
 
-The ReturnReview project contains a duplicate MotionLab service and older Hub metadata from an abandoned architecture.
+An abandoned shared-runtime experiment temporarily created a duplicate MotionLab service and embedded Hub metadata inside ReturnReview.
 
-They are tracked in registry/resources.json as migration residue.
+Those resources were audited, safely removed, and remain permanently recorded in registry/resources.json with removed_verified status and in changes/CHANGELOG.md.
 
-They are not evidence that shared runtime is an accepted architecture.
+Historical residue is evidence for recovery/audit only and must never be treated as active architecture.
