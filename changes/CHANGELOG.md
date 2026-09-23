@@ -1,5 +1,30 @@
 # Railway Project Hub Changelog
 
+## 2026-09-23 — MotionLab archived; Railway Project Hub provisioned
+
+Applications: MotionLab / Hub governance / ReturnReview verification
+
+Completed actions:
+- verified MotionLab backup and permanent source archive
+- removed only the `motionlab` Railway service after explicit authorization
+- verified the former MotionLab project container became empty
+- renamed the empty project container to `Railway Project Hub`
+- preserved the same project/environment IDs while changing their lifecycle role
+- kept the Railway Project Hub governance-only with 0 app services, 0 buckets, and 0 project feature flags
+- verified ReturnReview API and web services remained healthy
+
+Current state:
+- App 01 MotionLab: archived; no active Railway project
+- App 02 ReturnReview: active; isolated Railway project
+- Railway Project Hub: governance-only project
+- App 03: next application number
+
+Important identity note:
+Project ID `917d84ff-5ef4-4d64-9629-b731ab79d67b` historically belonged to MotionLab and now belongs to the governance-only Railway Project Hub role. Historical records remain intact; current ownership must be determined by lifecycle state and live verification.
+
+Governance impact:
+No immutable invariant was weakened and governance version remains v1.0. This provisions an optional governance-only Railway project already permitted by the frozen architecture; it does not introduce shared application runtime.
+
 ## 2026-09-23 — MotionLab pre-retirement backup prepared
 
 Application: MotionLab

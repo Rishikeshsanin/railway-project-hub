@@ -3,14 +3,6 @@
   "updated_at": "2026-09-23",
   "projects": [
     {
-      "owner_app": "motionlab",
-      "canonical": true,
-      "name": "MotionLab",
-      "project_id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
-      "environment_name": "production",
-      "environment_id": "bca2ecae-b4dd-4047-87da-428b96be0270"
-    },
-    {
       "owner_app": "return_review",
       "canonical": true,
       "name": "ReturnReview",
@@ -20,17 +12,6 @@
     }
   ],
   "services": [
-    {
-      "owner_app": "motionlab",
-      "canonical": true,
-      "project_id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
-      "service_name": "motionlab",
-      "service_id": "048331c3-43df-4bbb-a1a5-1cea4adcfc5d",
-      "source_repository": "Rishikeshsanin/animation-website",
-      "source_branch": "main",
-      "public_domain": "motionlab-production-2310.up.railway.app",
-      "custom_variable_names": []
-    },
     {
       "owner_app": "return_review",
       "canonical": true,
@@ -105,6 +86,62 @@
       "reason": "Metadata created inside ReturnReview before governance was moved to the canonical independent Hub repository.",
       "removed_at": "2026-09-23",
       "cleanup_result": "Removed after confirming canonical governance lives in Rishikeshsanin/railway-project-hub and ReturnReview runtime does not depend on these project-scoped flags. ReturnReview API/web and standalone MotionLab remained healthy."
+    }
+  ],
+  "governance_projects": [
+    {
+      "owner": "railway_project_hub_governance",
+      "canonical": true,
+      "name": "Railway Project Hub",
+      "project_id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
+      "environment_name": "production",
+      "environment_id": "bca2ecae-b4dd-4047-87da-428b96be0270",
+      "purpose": "Governance-only Railway project; canonical governance lives in the GitHub Hub repository.",
+      "application_runtime_allowed": false,
+      "expected_service_count": 0,
+      "databases_allowed": false,
+      "volumes_allowed": false,
+      "buckets_allowed": false,
+      "shared_application_secrets_allowed": false
+    }
+  ],
+  "archived_application_resources": [
+    {
+      "owner_app": "motionlab",
+      "lifecycle_status": "archived",
+      "archived_at": "2026-09-23",
+      "source_repository": "Rishikeshsanin/animation-website",
+      "source_archive_branch": "archive/pre-railway-retirement-2026-09-23",
+      "backup_path": "backups/motionlab/2026-09-23/",
+      "former_project": {
+        "name": "MotionLab",
+        "project_id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
+        "environment_name": "production",
+        "environment_id": "bca2ecae-b4dd-4047-87da-428b96be0270",
+        "status": "repurposed_verified",
+        "current_role": "Railway Project Hub governance-only project"
+      },
+      "former_service": {
+        "name": "motionlab",
+        "service_id": "048331c3-43df-4bbb-a1a5-1cea4adcfc5d",
+        "public_domain": "motionlab-production-2310.up.railway.app",
+        "status": "removed_verified"
+      },
+      "data_loss_assessment": "No custom app secrets, database, volume, bucket, cron, custom domain, or unique Railway-persistent application data existed at retirement."
+    }
+  ],
+  "project_repurposing_history": [
+    {
+      "project_id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
+      "previous_name": "MotionLab",
+      "previous_role": "App 01 Railway runtime project",
+      "previous_owner_app": "motionlab",
+      "transition_date": "2026-09-23",
+      "transition": "MotionLab service removed after verified backup; empty project container renamed and repurposed.",
+      "current_name": "Railway Project Hub",
+      "current_role": "governance_only",
+      "current_owner": "railway_project_hub_governance",
+      "application_runtime_allowed": false
     }
   ]
 }

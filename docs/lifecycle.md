@@ -39,6 +39,19 @@ Meaningful infrastructure changes require:
 - verification
 - changelog update
 
+## Archived
+
+An archived app has preserved source/history but no active Railway runtime.
+
+Requirements:
+- source repository remains preserved
+- recovery/restore metadata is retained
+- former Railway IDs remain historical
+- canonical_services is empty
+- no active Railway project is claimed
+- app number and slug remain permanently reserved
+- restoring the app requires a new isolated Railway project unless a deliberate, verified exception is approved
+
 ## Deprecated
 
 Before deprecation:

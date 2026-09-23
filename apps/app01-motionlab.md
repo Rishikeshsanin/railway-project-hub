@@ -2,47 +2,65 @@
 
 ## Identity
 - App number: 01
-- Slug: motionlab
+- Slug: `motionlab`
 - Repository: https://github.com/Rishikeshsanin/animation-website
-- Canonical Railway project: MotionLab
-- Railway project ID: 917d84ff-5ef4-4d64-9629-b731ab79d67b
-- Environment: production
-- Environment ID: bca2ecae-b4dd-4047-87da-428b96be0270
-- Status: active
+- Status: **archived**
+- Active Railway project: **none**
 
-## Canonical service
-- Service: motionlab
-- Service ID: 048331c3-43df-4bbb-a1a5-1cea4adcfc5d
-- Source: Rishikeshsanin/animation-website
-- Branch: main
-- Domain: https://motionlab-production-2310.up.railway.app
+App 01 remains permanently reserved for MotionLab. Its number and slug must never be reused.
 
-## Architecture
-MotionLab is frontend-only.
+## Archive state
 
-It currently requires:
-- no Railway database
-- no Railway volume
-- no Supabase project
-- no cross-app runtime dependency
-- no custom application secrets
+MotionLab's Railway runtime was safely retired on 2026-09-23 after:
+- verifying the source repository,
+- creating a permanent source archive branch,
+- exporting a downloadable source snapshot,
+- capturing non-secret Railway configuration and deployment metadata,
+- verifying no database, volume, bucket, cron, custom domain, custom application secret, or unique Railway-persistent data existed.
 
-## Isolation boundary
-MotionLab may modify only its own Railway project and registered resources.
+Preserved source:
+- main commit: `85e64bd1dd67148893290c5862a1187567b7e54e`
+- archive branch: `archive/pre-railway-retirement-2026-09-23`
 
-ReturnReview and all future apps are out of scope during MotionLab work.
+Restore documentation:
+- `backups/motionlab/2026-09-23/README.md`
+- `backups/motionlab/2026-09-23/RAILWAY_SNAPSHOT.json`
+- `backups/motionlab/2026-09-23/RESTORE.md`
 
-## Required app-side documents
-The MotionLab repository contains:
-- README.md
-- AGENTS.md
-- RAILWAY_HUB_RULES.md
+## Historical Railway identity
 
-These must be read before Railway writes.
+Former project:
+- name: `MotionLab`
+- project ID: `917d84ff-5ef4-4d64-9629-b731ab79d67b`
+- environment ID: `bca2ecae-b4dd-4047-87da-428b96be0270`
 
-## Historical duplicate cleanup
-A non-canonical service named app01-motionlab previously existed inside the ReturnReview Railway project from an earlier experiment.
+Former service:
+- name: `motionlab`
+- service ID: `048331c3-43df-4bbb-a1a5-1cea4adcfc5d`
+- former Railway domain: `motionlab-production-2310.up.railway.app`
 
-It was audited and safely deleted on 2026-09-23 after explicit approval. The standalone MotionLab Railway project remained healthy and is the canonical deployment.
+The service was deleted with explicit authorization after backup verification.
 
-The removed service remains recorded historically in registry/resources.json; its app number/resource identity must not be reused as if it were a new canonical service.
+## Project-ID repurposing warning
+
+The former MotionLab **project container was not deleted**. After the MotionLab service was removed, the empty container was renamed to **Railway Project Hub**.
+
+Therefore project ID:
+
+`917d84ff-5ef4-4d64-9629-b731ab79d67b`
+
+is **not an active MotionLab resource anymore**.
+
+Its current role is the governance-only Railway Project Hub project. Never infer MotionLab ownership from historical ID references.
+
+## Restore rule
+
+If MotionLab is deployed to Railway again:
+1. read the Hub governance first,
+2. use the preserved source/restore snapshot,
+3. create a **new isolated MotionLab Railway project**,
+4. never place MotionLab runtime services inside Railway Project Hub,
+5. verify the new live IDs,
+6. update the Hub registry and changelog.
+
+ReturnReview and every other application remain out of scope during a MotionLab restore.
