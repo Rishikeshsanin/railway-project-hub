@@ -54,7 +54,7 @@ Canonical Railway Postgres is now provisioned inside the isolated ReturnReview p
 - Volume ID: `6114b26f-88d5-40d9-ad53-b1de917bc703`
 - Mount path: `/var/lib/postgresql/data`
 
-The API has not yet been switched from SQLite at this reconciliation point. Activation must use only a Railway reference/private connection from `returnreview-api` to this database, followed by redeploy and persistence verification.
+Production activation is now verified. `returnreview-api` connects to the canonical Railway Postgres through a Railway service-reference URL; startup reports `database_backend=postgresql` and `durable_persistence=True`, and both `/health` and `/readiness` return HTTP 200. Final proof still requires a real case + evidence to survive an API redeploy.
 
 An accidental Postgres service was separately created inside the governance-only Railway Project Hub. It is non-canonical, has no application dependency, and is explicitly approved for removal.
 
