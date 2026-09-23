@@ -1,5 +1,30 @@
 # Railway Project Hub Changelog
 
+## 2026-09-24 — ReturnReview Railway Postgres reconciled before cleanup
+
+Application: ReturnReview (App 02) / Hub governance
+
+Observed and registered:
+- canonical ReturnReview Postgres service `02cc5aaf-b427-48d8-bfdd-488a1d714daf` exists inside the isolated ReturnReview Railway project
+- canonical volume `6114b26f-88d5-40d9-ad53-b1de917bc703` is attached only to that database
+- database has no public domain and uses Railway private networking
+- ReturnReview API/web remain healthy and unchanged
+
+Accidental Hub resource identified:
+- governance-only Railway Project Hub service `Postgres`
+- service ID `0e2a45db-b528-462b-b85b-ee56f9d960de`
+- attached volume ID `49d2eca8-6585-4ca5-ad6f-7f245eca5f78`
+- no public domain
+- no ReturnReview API reference
+- no marker-service reference
+- no intentional application data
+
+User authorization:
+Explicitly approved deletion of only the accidental Hub Postgres and instructed that nothing else be deleted.
+
+Plan:
+Delete only the accidental Hub Postgres service and its attached volume, verify the Hub returns to marker-only state, then connect ReturnReview API only to the canonical ReturnReview Postgres.
+
 ## 2026-09-23 — ReturnReview API outbound IPv6 enabled
 
 Application: ReturnReview (App 02)
