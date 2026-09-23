@@ -1,5 +1,26 @@
 # Railway Project Hub Changelog
 
+## 2026-09-23 — ReturnReview API outbound IPv6 enabled
+
+Application: ReturnReview (App 02)
+
+Change:
+- enabled outbound IPv6 only on canonical service `returnreview-api`
+- verified API redeployment succeeded
+- verified `returnreview-web` remained healthy and unchanged
+- reconciled the App 02 resource registry with current non-secret variable names
+- recorded `RETURNREVIEW_DATABASE_SCHEMA` and `RETURNREVIEW_GEMINI_MODEL`
+- confirmed `RETURNREVIEW_GEMINI_API_KEY` is not currently registered/present
+
+Reason:
+Allow ReturnReview API to reach the IPv6 Supabase direct Postgres endpoint while preserving project/service isolation.
+
+Current persistence state:
+Network connectivity is prepared, but the live API remains on SQLite until the dedicated `return_review_backend` credential and PostgreSQL URL are configured privately.
+
+Result:
+ReturnReview API/web healthy; no cross-app resource changed.
+
 ## 2026-09-23 — ReturnReview marker added to Railway Project Hub
 
 Application: ReturnReview / Hub governance
