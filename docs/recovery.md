@@ -22,28 +22,26 @@ Before deleting a project, service, domain, database, volume, or other persisten
 10. Audit all applications after deletion.
 11. Update registry and changelog.
 
-## Current MotionLab duplicate cleanup
+## MotionLab duplicate cleanup — completed
 
-Known residue:
-- app01-motionlab service inside ReturnReview
-- its generated public domain
-- earlier project-level Hub metadata inside ReturnReview
+The non-canonical app01-motionlab service inside ReturnReview was safely removed on 2026-09-23.
 
-Do not clean these during ordinary MotionLab or ReturnReview work.
+Completed checks:
+1. standalone MotionLab project/service verified healthy
+2. duplicate verified to contain no unique variables, volumes, data, custom domains, or dependencies
+3. ReturnReview verified not to reference the duplicate
+4. duplicate verified not to reference ReturnReview
+5. proposed deletion recorded in changelog
+6. explicit user confirmation obtained
+7. only the duplicate service deleted
+8. standalone MotionLab verified healthy afterward
+9. ReturnReview API/web verified healthy afterward
+10. registry/changelog updated
 
-Required cleanup sequence:
-1. Confirm standalone MotionLab project/service is healthy.
-2. Confirm the duplicate contains no unique variables, volumes, data, custom domains, or dependencies.
-3. Confirm ReturnReview does not reference the duplicate.
-4. Confirm the duplicate does not reference ReturnReview.
-5. Record the proposed deletion in the changelog.
-6. Obtain explicit user confirmation immediately before deletion.
-7. Delete only the duplicate service.
-8. Verify standalone MotionLab remains healthy.
-9. Verify ReturnReview API/web remain healthy.
-10. Separately review the three misplaced Hub metadata entries.
-11. Obtain explicit confirmation before deleting that metadata.
-12. Run final inventory and update registry.
+Still pending separately:
+- review the three misplaced Hub metadata entries inside ReturnReview
+- obtain explicit confirmation before deleting any of that metadata
+- run a final metadata cleanup audit afterward
 
 ## Database rollback
 
