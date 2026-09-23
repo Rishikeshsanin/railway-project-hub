@@ -27,7 +27,8 @@
         "motionlab"
       ],
       "cross_app_dependencies": [],
-      "shared_resources": []
+      "shared_resources": [],
+      "governance_doc": "apps/app01-motionlab.md"
     },
     {
       "app_number": 2,
@@ -48,7 +49,8 @@
         "returnreview-web"
       ],
       "cross_app_dependencies": [],
-      "shared_resources": []
+      "shared_resources": [],
+      "governance_doc": "apps/app02-returnreview.md"
     }
   ]
 }
