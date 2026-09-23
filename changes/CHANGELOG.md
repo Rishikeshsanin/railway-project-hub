@@ -17,7 +17,7 @@ Reason:
 Finalize the governance architecture so future applications use a stable, scalable model rather than redesigning the Hub during normal development.
 
 Result:
-Pending CI/merge at time of this entry. Historical MotionLab/ReturnReview cleanup records remain unchanged.
+Hub validation passed and the v1.0 freeze was squash-merged to main as commit `d2a6284e1ad3ed2d52bd54b92f147c388a8cd26c`. Historical MotionLab/ReturnReview cleanup records remain unchanged.
 
 ## 2026-09-23 — Legacy ReturnReview Hub metadata cleanup completed
 
