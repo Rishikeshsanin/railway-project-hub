@@ -44,9 +44,19 @@ Registered custom variable names:
 - NEXT_PUBLIC_API_BASE_URL
 
 ## Persistence
-No active Railway volume is registered.
+Canonical Railway Postgres is now provisioned inside the isolated ReturnReview project.
 
-Hosted SQLite/uploads are currently ephemeral and must not be described as durable persistence. The API is network-ready for direct Supabase Postgres over outbound IPv6, but durable persistence is not active until the dedicated database credential is configured.
+- Database service: `Postgres`
+- Service ID: `02cc5aaf-b427-48d8-bfdd-488a1d714daf`
+- Private network endpoint: `postgres`
+- Public domain: none
+- Volume: `postgres-volume`
+- Volume ID: `6114b26f-88d5-40d9-ad53-b1de917bc703`
+- Mount path: `/var/lib/postgresql/data`
+
+The API has not yet been switched from SQLite at this reconciliation point. Activation must use only a Railway reference/private connection from `returnreview-api` to this database, followed by redeploy and persistence verification.
+
+An accidental Postgres service was separately created inside the governance-only Railway Project Hub. It is non-canonical, has no application dependency, and is explicitly approved for removal.
 
 ## API registry
 Gemini is intended for the ReturnReview API.
@@ -70,9 +80,11 @@ The ReturnReview repository contains:
 ## Migration cleanup state
 The non-canonical app01-motionlab duplicate service was safely removed on 2026-09-23 after audit and explicit approval.
 
-ReturnReview now contains only its canonical runtime services:
+ReturnReview canonical runtime resources are:
 - returnreview-api
 - returnreview-web
+- Postgres
+- postgres-volume
 
 The three earlier project-level Hub metadata flags were safely removed on 2026-09-23 after confirming that canonical governance lives in the independent Railway Project Hub repository and ReturnReview runtime does not depend on those flags.
 
