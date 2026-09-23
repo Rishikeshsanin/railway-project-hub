@@ -1,5 +1,31 @@
 # Railway Project Hub Changelog
 
+## 2026-09-23 — Legacy ReturnReview Hub metadata cleanup completed
+
+Application: ReturnReview / Hub governance
+
+Removed project-scoped flags:
+- `hub.apps`
+- `hub.architecture_version`
+- `hub.read_me_first`
+
+Pre-removal verification:
+- canonical Railway governance is stored in `Rishikeshsanin/railway-project-hub`
+- ReturnReview runtime consists only of `returnreview-api` and `returnreview-web`
+- the old flags were created by the abandoned shared-runtime experiment
+- `hub.apps` contained stale references to the already-removed duplicate MotionLab service
+- no application service relied on these feature flags for runtime configuration
+
+Post-removal verification:
+- ReturnReview project has zero project-scoped Hub feature flags
+- `returnreview-api` remains healthy
+- `returnreview-web` remains healthy
+- standalone MotionLab remains healthy
+- ReturnReview has no pending changes
+
+Result:
+The abandoned Railway shared-runtime/embedded-Hub experiment is fully cleaned up. Canonical governance remains independently in the Railway Project Hub repository.
+
 ## 2026-09-23 — MotionLab duplicate cleanup completed
 
 Applications: MotionLab, ReturnReview

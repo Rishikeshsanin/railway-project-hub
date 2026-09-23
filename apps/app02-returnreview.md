@@ -71,4 +71,6 @@ ReturnReview now contains only its canonical runtime services:
 - returnreview-api
 - returnreview-web
 
-Three earlier Hub metadata signals still remain inside the ReturnReview project. They are not ReturnReview application architecture and must not be touched during ordinary ReturnReview development. Their cleanup is governed separately by the Hub recovery process.
+The three earlier project-level Hub metadata flags were safely removed on 2026-09-23 after confirming that canonical governance lives in the independent Railway Project Hub repository and ReturnReview runtime does not depend on those flags.
+
+ReturnReview is now cleanly isolated with only its canonical runtime services and no embedded Hub metadata.
