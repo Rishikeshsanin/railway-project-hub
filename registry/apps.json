@@ -17,12 +17,14 @@
     "note": "This project container was formerly named MotionLab. The MotionLab runtime was backed up and retired before the container was repurposed.",
     "expected_runtime_service_count": 0,
     "registry_marker_services_allowed": true,
-    "planned_registry_markers": [
+    "planned_registry_markers": [],
+    "registry_markers": [
       {
         "app_number": 2,
         "app_slug": "return_review",
         "service_name": "app02-returnreview",
-        "status": "planned",
+        "service_id": "4dabbfb9-e1be-4247-8287-abc78f32ad71",
+        "status": "verified",
         "runtime_allowed": false
       }
     ]
