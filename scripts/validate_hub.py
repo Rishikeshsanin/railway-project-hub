@@ -40,15 +40,27 @@ def main():
         "Treat every registered application as if it belongs to a different customer",
         "No documentation = no Railway project creation",
         "READ THAT APP'S OWN README + AGENTS.md + RAILWAY_HUB_RULES.md",
+        "Immutable Safety Invariants",
+        "No single artifact automatically overrides another",
+        "Current governance version: v1.0 — frozen",
     ]:
         assert phrase in readme, f"README hard-gate phrase missing: {phrase}"
 
     assert "No new application Railway project may be created until:" in rules
+    assert "Immutable Safety Invariants" in rules
+    assert "Reconciliation Rule" in rules
+    assert "Governance Freeze" in rules
     assert "Before any Railway write:" in agents
+    assert "Registry / Live-State Mismatch" in agents
+    assert "Governance v1.0 freeze" in agents
 
     apps_doc = load_json("registry/apps.json")
     resources = load_json("registry/resources.json")
     api_registry = load_json("registry/api-registry.json")
+
+    assert apps_doc.get("governance_version") == "1.0", "governance_version must be 1.0"
+    assert apps_doc.get("governance_status") == "frozen", "governance_status must be frozen"
+    assert apps_doc.get("reconciliation_policy"), "reconciliation policy missing"
 
     apps = apps_doc["apps"]
     assert apps, "at least one registered app is required"
