@@ -40,6 +40,21 @@ The following rules are constitutional and must not be weakened for convenience:
 9. Removed resources remain historically recorded as removed/verified.
 10. Declared/live-state mismatches stop all writes until reconciled.
 
+## 4A. Non-running registry markers
+
+The governance-only Railway Project Hub may contain empty marker services solely to make registered applications visible on its canvas.
+
+Markers are permitted only when they are explicitly registered as governance metadata and verified to have:
+- no source
+- no image
+- no deployment
+- no domain
+- no custom variables/secrets
+- no persistence
+- no runtime dependency
+
+A marker is never a canonical application service and must not appear in an application's `canonical_services` list.
+
 ## 5. Read-first gate
 
 Before any write:

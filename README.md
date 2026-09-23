@@ -172,11 +172,28 @@ A governance-only Railway project is now provisioned:
 - Project ID: `917d84ff-5ef4-4d64-9629-b731ab79d67b`
 - Environment: `production`
 - Environment ID: `bca2ecae-b4dd-4047-87da-428b96be0270`
-- Application services: **0**
+- Application runtime services: **0**
+- Non-running registry marker cards: permitted when explicitly registered
 
 This project exists only to make the Railway dashboard visibly match the governance model. Canonical governance remains in this GitHub repository. The Railway Hub project must never host application runtime services, databases, volumes, buckets, or shared application secrets.
 
 The project ID above historically belonged to MotionLab before MotionLab's Railway runtime was retired. That reuse is explicitly recorded in `registry/resources.json`; ownership must be interpreted by lifecycle state and verified live, never inferred from the ID or old history alone.
+
+## Non-running app marker cards
+
+The Railway Project Hub may contain **empty, non-running marker services** whose only purpose is to make registered applications visible on the Railway canvas.
+
+A marker is governance metadata, not application runtime. It must have:
+- no GitHub/source attachment
+- no Docker image
+- no deployment
+- no domain
+- no custom variables/secrets
+- no volume/database/bucket
+- no cron or replicas
+- no dependency from or to the real application
+
+The real application remains in its own isolated Railway project. A marker must never be treated as the application's runtime service.
 
 ## Migration cleanup status
 

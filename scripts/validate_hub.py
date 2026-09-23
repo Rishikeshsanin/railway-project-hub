@@ -68,7 +68,8 @@ def main():
         assert hub_project.get("name") == "Railway Project Hub", "active governance project must use canonical name"
         assert hub_project.get("id"), "active governance project missing project id"
         assert hub_project.get("application_runtime_allowed") is False, "Hub project must forbid app runtime"
-        assert hub_project.get("expected_service_count") == 0, "Hub project expected service count must be zero"
+        assert hub_project.get("expected_runtime_service_count") == 0, "Hub project expected runtime service count must be zero"
+        assert hub_project.get("registry_marker_services_allowed") is True, "Hub project must explicitly govern registry marker services"
 
     apps = apps_doc["apps"]
     assert apps, "at least one registered app is required"
@@ -119,9 +120,27 @@ def main():
         assert len(matches) == 1, "active Hub Railway project must appear exactly once in resources.governance_projects"
         gp = matches[0]
         assert gp.get("application_runtime_allowed") is False, "governance project must forbid app runtime"
-        assert gp.get("expected_service_count") == 0, "governance project expected service count must be zero"
+        assert gp.get("expected_runtime_service_count") == 0, "governance project expected runtime service count must be zero"
+        assert gp.get("registry_marker_services_allowed") is True, "governance project marker policy missing"
         active_app_project_ids = {p.get("project_id") for p in resource_projects}
         assert gp.get("project_id") not in active_app_project_ids, "governance project cannot also be an active app project"
+
+    for marker in resources.get("planned_governance_markers", []):
+        assert marker.get("status") == "planned", "planned marker must have planned status"
+        assert marker.get("marker_only") is True, "planned governance marker must be marker_only"
+        assert marker.get("runtime_allowed") is False, "planned governance marker must forbid runtime"
+        assert marker.get("owner_app") in by_slug, "planned marker references unknown app"
+        assert marker.get("service_name"), "planned marker missing service name"
+
+    for marker in resources.get("governance_marker_services", []):
+        assert marker.get("marker_only") is True, "governance marker must be marker_only"
+        assert marker.get("runtime_allowed") is False, "governance marker must forbid runtime"
+        assert marker.get("owner_app") in by_slug, "governance marker references unknown app"
+        assert marker.get("service_id"), "verified governance marker missing service id"
+        assert marker.get("source_attached") is False, "governance marker cannot have a source"
+        assert marker.get("deployment_present") is False, "governance marker cannot have a deployment"
+        assert marker.get("domain_present") is False, "governance marker cannot have a domain"
+        assert marker.get("custom_variable_names") == [], "governance marker cannot have custom variables"
 
     for project in resource_projects:
         assert project["owner_app"] in by_slug, f"unknown project owner_app: {project['owner_app']}"

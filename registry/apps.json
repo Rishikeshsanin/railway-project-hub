@@ -14,8 +14,18 @@
     },
     "purpose": "Governance-only visual/control project. Canonical governance remains in the GitHub Hub repository.",
     "application_runtime_allowed": false,
-    "expected_service_count": 0,
-    "note": "This project container was formerly named MotionLab. The MotionLab runtime was backed up and retired before the container was repurposed."
+    "note": "This project container was formerly named MotionLab. The MotionLab runtime was backed up and retired before the container was repurposed.",
+    "expected_runtime_service_count": 0,
+    "registry_marker_services_allowed": true,
+    "planned_registry_markers": [
+      {
+        "app_number": 2,
+        "app_slug": "return_review",
+        "service_name": "app02-returnreview",
+        "status": "planned",
+        "runtime_allowed": false
+      }
+    ]
   },
   "apps": [
     {

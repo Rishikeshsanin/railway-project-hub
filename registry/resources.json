@@ -98,11 +98,12 @@
       "environment_id": "bca2ecae-b4dd-4047-87da-428b96be0270",
       "purpose": "Governance-only Railway project; canonical governance lives in the GitHub Hub repository.",
       "application_runtime_allowed": false,
-      "expected_service_count": 0,
       "databases_allowed": false,
       "volumes_allowed": false,
       "buckets_allowed": false,
-      "shared_application_secrets_allowed": false
+      "shared_application_secrets_allowed": false,
+      "expected_runtime_service_count": 0,
+      "registry_marker_services_allowed": true
     }
   ],
   "archived_application_resources": [
@@ -142,6 +143,18 @@
       "current_role": "governance_only",
       "current_owner": "railway_project_hub_governance",
       "application_runtime_allowed": false
+    }
+  ],
+  "planned_governance_markers": [
+    {
+      "owner_app": "return_review",
+      "app_number": 2,
+      "service_name": "app02-returnreview",
+      "project_id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
+      "environment_id": "bca2ecae-b4dd-4047-87da-428b96be0270",
+      "status": "planned",
+      "marker_only": true,
+      "runtime_allowed": false
     }
   ]
 }

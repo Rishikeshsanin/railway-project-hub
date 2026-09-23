@@ -1,5 +1,20 @@
 # Railway Project Hub Changelog
 
+## 2026-09-23 — Non-running Hub marker policy added
+
+Application: Hub governance / ReturnReview
+
+Change:
+- clarified that the Hub may contain explicitly registered empty marker services for visual app cataloging
+- marker services are forbidden from having sources, deployments, domains, variables/secrets, persistence, or runtime dependencies
+- planned `app02-returnreview` marker registered before creation
+
+Reason:
+Allow ReturnReview to appear visually inside the Railway Project Hub without duplicating or moving its real runtime.
+
+Governance impact:
+This does not weaken the invariant that the Hub must not host application runtime services. Governance remains v1.0 with a clarification-only implementation update.
+
 ## 2026-09-23 — MotionLab archived; Railway Project Hub provisioned
 
 Applications: MotionLab / Hub governance / ReturnReview verification
