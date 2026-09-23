@@ -145,16 +145,29 @@
       "application_runtime_allowed": false
     }
   ],
-  "planned_governance_markers": [
+  "planned_governance_markers": [],
+  "governance_marker_services": [
     {
       "owner_app": "return_review",
       "app_number": 2,
       "service_name": "app02-returnreview",
+      "service_id": "4dabbfb9-e1be-4247-8287-abc78f32ad71",
       "project_id": "917d84ff-5ef4-4d64-9629-b731ab79d67b",
       "environment_id": "bca2ecae-b4dd-4047-87da-428b96be0270",
-      "status": "planned",
+      "status": "verified",
       "marker_only": true,
-      "runtime_allowed": false
+      "runtime_allowed": false,
+      "source_attached": false,
+      "deployment_present": false,
+      "domain_present": false,
+      "custom_variable_names": [],
+      "volumes": [],
+      "cron_schedule": null,
+      "points_to_project_id": "3b5a435b-a0ca-43c0-85c0-9783073a8cd4",
+      "points_to_services": [
+        "returnreview-api",
+        "returnreview-web"
+      ]
     }
   ]
 }
