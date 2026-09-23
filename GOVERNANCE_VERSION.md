@@ -12,6 +12,14 @@ The governance architecture, isolation model, immutable safety invariants, read-
 
 Future applications extend the existing system; they do not redefine it.
 
+## Current implementation state
+
+A governance-only Railway project named `Railway Project Hub` is provisioned for dashboard visibility. It hosts no application runtime resources. Canonical governance remains in the GitHub repository.
+
+MotionLab is archived with preserved source and restore metadata. ReturnReview remains the active App 02 Railway deployment. App 03 remains the next application number.
+
+This is an implementation/lifecycle state update, not a governance architecture change; v1.0 remains frozen.
+
 ## Constitutional invariants
 
 The immutable safety invariants in README.md and RAILWAY_HUB_RULES.md are part of v1.0 and must not be weakened for convenience.
