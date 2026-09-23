@@ -140,16 +140,17 @@ If scope is ambiguous, **stop and ask the user**.
 Railway account
 │
 ├── Railway Project Hub
-│   └── governance / registry / safety documentation only
-│
-├── MotionLab
-│   └── isolated Railway project
+│   └── governance-only Railway project; 0 app runtime services
 │
 ├── ReturnReview
-│   └── isolated Railway project
+│   └── isolated Railway application project
 │
-└── Future applications
+└── Future active applications
     └── one isolated Railway project each by default
+
+Archived applications
+└── MotionLab
+    └── source + restore snapshot preserved; no active Railway runtime
 ~~~
 
 The Hub must never become a dumping ground for unrelated application services, data, databases, secrets, or runtime code.
@@ -158,10 +159,24 @@ The Hub must never become a dumping ground for unrelated application services, d
 
 | App | Slug | Repository | Canonical Railway Project | Status |
 |---|---|---|---|---|
-| App 01 | motionlab | Rishikeshsanin/animation-website | MotionLab | active |
+| App 01 | motionlab | Rishikeshsanin/animation-website | — | archived |
 | App 02 | return_review | Rishikeshsanin/ReturnReview | ReturnReview | active |
 
 The machine-readable **canonical declared application registry** is `registry/apps.json`. It does not automatically override observed live Railway state; mismatches follow the reconciliation STOP rule above.
+
+## Railway governance project
+
+A governance-only Railway project is now provisioned:
+
+- Name: `Railway Project Hub`
+- Project ID: `917d84ff-5ef4-4d64-9629-b731ab79d67b`
+- Environment: `production`
+- Environment ID: `bca2ecae-b4dd-4047-87da-428b96be0270`
+- Application services: **0**
+
+This project exists only to make the Railway dashboard visibly match the governance model. Canonical governance remains in this GitHub repository. The Railway Hub project must never host application runtime services, databases, volumes, buckets, or shared application secrets.
+
+The project ID above historically belonged to MotionLab before MotionLab's Railway runtime was retired. That reuse is explicitly recorded in `registry/resources.json`; ownership must be interpreted by lifecycle state and verified live, never inferred from the ID or old history alone.
 
 ## Migration cleanup status
 
