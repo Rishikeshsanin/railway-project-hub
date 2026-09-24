@@ -1,5 +1,20 @@
 # Railway Project Hub Changelog
 
+## 2026-09-24 — ReturnReview Gemini capacity fallback declared
+
+Application: ReturnReview (App 02)
+
+Declared backend-only variable names:
+- RETURNREVIEW_GEMINI_FALLBACK_MODEL
+- RETURNREVIEW_LLM_EVAL_MODEL
+
+Purpose:
+- keep the primary production Gemini model unchanged
+- use a separately recorded fallback only after transient provider-capacity failures
+- allow the controlled evaluation to record the exact model it actually uses
+
+No secret value is stored in the Hub. No frontend, database, marker, or unrelated application resource is changed by this declaration.
+
 ## 2026-09-24 — ReturnReview Gemini production activation registered
 
 Application: ReturnReview (App 02)
