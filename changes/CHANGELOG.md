@@ -1,5 +1,24 @@
 # Railway Project Hub Changelog
 
+## 2026-09-24 — ReturnReview durable persistence proof completed
+
+Application: ReturnReview (App 02)
+
+Verified:
+- production API already running on canonical Railway Postgres
+- created case `PERSISTENCE-PROOF-01`
+- uploaded two evidence images
+- confirmed both images rendered from the API
+- redeployed only `returnreview-api`
+- deployment `0522dc2b-5a35-4757-993b-56d067d3cb91` completed successfully
+- after redeploy, the same case, both images, and the three audit events remained available
+- production Postgres persistence is therefore verified end to end
+
+Unrelated pending cleanup:
+- the accidental governance-Hub Postgres service and its own volume are still staged for deletion
+- Railway requires dashboard 2FA to commit that destructive change
+- no other Hub resource is staged for deletion
+
 ## 2026-09-24 — ReturnReview Railway Postgres activated
 
 Application: ReturnReview (App 02)
