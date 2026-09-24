@@ -1,5 +1,23 @@
 # Railway Project Hub Changelog
 
+## 2026-09-24 — ReturnReview Gemini production activation registered
+
+Application: ReturnReview (App 02)
+
+Verified:
+- `RETURNREVIEW_GEMINI_API_KEY` is present only on `returnreview-api`; secret value remains private/redacted
+- `RETURNREVIEW_LLM_ENABLED` is enabled for the API runtime
+- canonical configured model remains `gemini-3.8-flash`
+- post-activation API deployment completed successfully
+- healthcheck passes
+
+Registered controlled evaluation flag:
+- `RETURNREVIEW_RUN_LLM_EVAL_ON_START`
+- disabled by default
+- may be enabled only for the fixed Gemini evaluation run, then restored to false
+
+No frontend, Postgres, Hub marker, or unrelated app resource is affected.
+
 ## 2026-09-24 — Accidental Hub Postgres cleanup completed
 
 Application: Railway Project Hub / ReturnReview governance

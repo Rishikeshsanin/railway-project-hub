@@ -24,12 +24,14 @@ Registered custom variable names:
 - RETURNREVIEW_ALLOWED_ORIGINS
 - RETURNREVIEW_CV_MODEL_VERSION
 - RETURNREVIEW_DATABASE_URL
+- RETURNREVIEW_GEMINI_API_KEY
 - RETURNREVIEW_GEMINI_MODEL
 - RETURNREVIEW_DATABASE_SCHEMA
 - RETURNREVIEW_DEMO_MODE
 - RETURNREVIEW_ENV
 - RETURNREVIEW_LLM_ENABLED
 - RETURNREVIEW_MAX_UPLOAD_MB
+- RETURNREVIEW_RUN_LLM_EVAL_ON_START
 - RETURNREVIEW_STORAGE_DIR
 
 ### returnreview-web
@@ -61,9 +63,9 @@ The accidental Postgres service previously created inside the governance-only Ra
 ## API registry
 Gemini is intended for the ReturnReview API.
 
-The credential name is RETURNREVIEW_GEMINI_API_KEY, but the last verified Railway inventory did not show that variable present.
+The credential name is `RETURNREVIEW_GEMINI_API_KEY`; it is now present only on `returnreview-api` and its value remains private/redacted. `RETURNREVIEW_RUN_LLM_EVAL_ON_START` is an opt-in one-time evaluation flag and must remain false during normal runtime.
 
-Never store its value in this Hub.
+Never store secret values in this Hub.
 
 ## Isolation boundary
 ReturnReview may modify only the ReturnReview Railway project and its registered canonical resources.
