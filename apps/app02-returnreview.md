@@ -56,7 +56,7 @@ Canonical Railway Postgres is now provisioned inside the isolated ReturnReview p
 
 Production persistence is fully verified. `returnreview-api` connects to the canonical Railway Postgres through a Railway service-reference URL; startup reports `database_backend=postgresql` and `durable_persistence=True`, and both `/health` and `/readiness` return HTTP 200. Case `PERSISTENCE-PROOF-01`, its two uploaded evidence images, and its audit timeline remained available after redeploying only `returnreview-api`.
 
-An accidental Postgres service was separately created inside the governance-only Railway Project Hub. It is non-canonical, has no application dependency, and is explicitly approved for removal.
+The accidental Postgres service previously created inside the governance-only Railway Project Hub has been removed and verified. The Hub now contains only the non-running `app02-returnreview` marker for ReturnReview.
 
 ## API registry
 Gemini is intended for the ReturnReview API.
