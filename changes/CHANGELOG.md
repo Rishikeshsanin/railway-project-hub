@@ -1,5 +1,25 @@
 # Railway Project Hub Changelog
 
+## 2026-09-24 — ReturnReview real Gemini evaluation completed
+
+Application: ReturnReview (App 02)
+
+Verified production configuration:
+- primary model: `gemini-3.8-flash`
+- transient-capacity fallback model: `gemini-3.5-flash`
+- controlled evaluation model: `gemini-3.5-flash`
+- Gemini credential remains backend-only and redacted
+- one-time evaluation flag restored to false after the run
+
+Evaluation result:
+- six fixed cases completed successfully
+- exact raw non-secret run preserved in the ReturnReview repository
+- all rows remain explicitly unreviewed until human confirmation
+- no final LLM metrics are claimed yet
+
+Reason for separate evaluation model:
+The primary model repeatedly returned transient provider-capacity 503 responses during the controlled run. The fallback evaluation is recorded truthfully as a 3.5 Flash run rather than being mislabeled as a 3.8 result.
+
 ## 2026-09-24 — ReturnReview Gemini capacity fallback declared
 
 Application: ReturnReview (App 02)
