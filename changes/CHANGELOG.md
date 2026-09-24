@@ -1,5 +1,20 @@
 # Railway Project Hub Changelog
 
+## 2026-09-24 — Accidental Hub Postgres cleanup completed
+
+Application: Railway Project Hub / ReturnReview governance
+
+Removed after explicit authorization + Railway dashboard 2FA:
+- accidental Hub Postgres service `0e2a45db-b528-462b-b85b-ee56f9d960de`
+- its attached volume `49d2eca8-6585-4ca5-ad6f-7f245eca5f78`
+
+Post-cleanup verification:
+- Railway Project Hub contains only marker service `app02-returnreview`
+- marker has no deployment, source, domain, variables, or volume
+- Hub has no database, volume, bucket, staged changes, or pending work
+- canonical ReturnReview API, web, and Postgres all remain present and healthy
+- no unrelated resource was deleted or modified
+
 ## 2026-09-24 — ReturnReview durable persistence proof completed
 
 Application: ReturnReview (App 02)
