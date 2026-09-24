@@ -65,7 +65,7 @@ The accidental Postgres service previously created inside the governance-only Ra
 ## API registry
 Gemini is intended for the ReturnReview API.
 
-The credential name is `RETURNREVIEW_GEMINI_API_KEY`; it is now present only on `returnreview-api` and its value remains private/redacted. `RETURNREVIEW_RUN_LLM_EVAL_ON_START` is an opt-in one-time evaluation flag and must remain false during normal runtime.
+The credential name is `RETURNREVIEW_GEMINI_API_KEY`; it is present only on `returnreview-api` and its value remains private/redacted. Production primary model is `gemini-3.8-flash`; transient-capacity fallback is `gemini-3.5-flash`. The controlled six-case evaluation completed using the explicitly recorded evaluation model `gemini-3.5-flash`, and `RETURNREVIEW_RUN_LLM_EVAL_ON_START` was restored to false after the run.
 
 Never store secret values in this Hub.
 
