@@ -89,7 +89,7 @@
       "volume_name": "postgres-volume",
       "volume_id": "49d2eca8-6585-4ca5-ad6f-7f245eca5f78",
       "canonical": false,
-      "status": "do_not_touch_until_cleanup_approved",
+      "status": "removed_verified",
       "reason": "Accidentally created inside the governance-only Railway Project Hub instead of the isolated ReturnReview project.",
       "dependency_assessment": "No public domain; no ReturnReview API reference; no marker-service reference; no application data intentionally written.",
       "user_authorization": "Explicitly approved deletion on 2026-09-24 with instruction to delete nothing else.",
@@ -97,7 +97,9 @@
         "approved": true,
         "approved_at": "2026-09-24",
         "scope": "Delete only this accidental Hub Postgres service and its attached volume; delete nothing else."
-      }
+      },
+      "removed_at": "2026-09-24",
+      "cleanup_result": "Removed from Railway Project Hub after explicit user authorization and dashboard 2FA. Post-cleanup verification found only the app02-returnreview marker service; no volumes, buckets, staged changes, or pending work remain in the Hub."
     },
     {
       "type": "service",
