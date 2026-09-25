@@ -23,6 +23,7 @@
 Registered custom variable names:
 - RETURNREVIEW_ALLOWED_ORIGINS
 - RETURNREVIEW_CV_MODEL_VERSION
+- RETURNREVIEW_DEPLOY_REVISION
 - RETURNREVIEW_CV_IMAGE_SIZE
 - RETURNREVIEW_CATEGORY_PROBABILITY_THRESHOLD
 - RETURNREVIEW_CATEGORY_MODEL_PATH
@@ -108,3 +109,8 @@ Planned backend-only CV settings:
 - `RETURNREVIEW_CATEGORY_PROBABILITY_THRESHOLD`
 
 The candidate architecture uses multiclass YOLO segmentation plus a MobileNetV3-Small category verifier so production does not require OpenCLIP. Runtime activation is not yet approved; the existing production service must remain unchanged until the candidate passes the recorded 1 GB memory gate and explicit production approval is obtained.
+
+
+## Deployment revision marker — declared 2026-09-26
+
+`RETURNREVIEW_DEPLOY_REVISION` is a non-secret backend-only marker ignored by application settings. It may be updated to the intended Git commit SHA when an explicit deployment of the current source revision is required. Its purpose is auditability and to force a Railway deployment without changing application behavior.
