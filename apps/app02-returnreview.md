@@ -23,6 +23,9 @@
 Registered custom variable names:
 - RETURNREVIEW_ALLOWED_ORIGINS
 - RETURNREVIEW_CV_MODEL_VERSION
+- RETURNREVIEW_CV_IMAGE_SIZE
+- RETURNREVIEW_CATEGORY_PROBABILITY_THRESHOLD
+- RETURNREVIEW_CATEGORY_MODEL_PATH
 - RETURNREVIEW_DATABASE_URL
 - RETURNREVIEW_GEMINI_API_KEY
 - RETURNREVIEW_GEMINI_FALLBACK_MODEL
@@ -93,3 +96,15 @@ ReturnReview canonical runtime resources are:
 The three earlier project-level Hub metadata flags were safely removed on 2026-09-23 after confirming that canonical governance lives in the independent Railway Project Hub repository and ReturnReview runtime does not depend on those flags.
 
 ReturnReview is now cleanly isolated with only its canonical runtime services and no embedded Hub metadata.
+
+
+## Lightweight CV production candidate — declared 2026-09-25
+
+The existing `returnreview-api` remains the intended deployment target. No new Railway service is declared.
+
+Planned backend-only CV settings:
+- `RETURNREVIEW_CV_IMAGE_SIZE`
+- `RETURNREVIEW_CATEGORY_MODEL_PATH`
+- `RETURNREVIEW_CATEGORY_PROBABILITY_THRESHOLD`
+
+The candidate architecture uses multiclass YOLO segmentation plus a MobileNetV3-Small category verifier so production does not require OpenCLIP. Runtime activation is not yet approved; the existing production service must remain unchanged until the candidate passes the recorded 1 GB memory gate and explicit production approval is obtained.

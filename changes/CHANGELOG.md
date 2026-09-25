@@ -1,5 +1,21 @@
 # Railway Project Hub Changelog
 
+## 2026-09-25 — ReturnReview lightweight CV runtime declared
+
+Application: ReturnReview (App 02)
+
+Declared only; no Railway runtime change:
+- keep CV inside existing `returnreview-api` if final capacity gate passes
+- no new service/resource declared
+- planned runtime replaces production OpenCLIP with multiclass YOLO + MobileNetV3-Small
+- declared backend variable names: `RETURNREVIEW_CV_IMAGE_SIZE`, `RETURNREVIEW_CATEGORY_MODEL_PATH`, `RETURNREVIEW_CATEGORY_PROBABILITY_THRESHOLD`
+
+Production activation remains blocked until:
+- lightweight candidate training/evaluation completes
+- 1 GB memory gate passes
+- application CI passes
+- explicit production-change confirmation is obtained
+
 ## 2026-09-24 — ReturnReview real Gemini evaluation completed
 
 Application: ReturnReview (App 02)

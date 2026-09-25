@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-24",
+  "updated_at": "2026-09-25",
   "projects": [
     {
       "owner_app": "return_review",
@@ -23,6 +23,9 @@
       "public_domain": "returnreview-api-production.up.railway.app",
       "custom_variable_names": [
         "RETURNREVIEW_ALLOWED_ORIGINS",
+        "RETURNREVIEW_CATEGORY_MODEL_PATH",
+        "RETURNREVIEW_CATEGORY_PROBABILITY_THRESHOLD",
+        "RETURNREVIEW_CV_IMAGE_SIZE",
         "RETURNREVIEW_CV_MODEL_VERSION",
         "RETURNREVIEW_DATABASE_SCHEMA",
         "RETURNREVIEW_DATABASE_URL",
