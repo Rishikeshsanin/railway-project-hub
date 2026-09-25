@@ -1,5 +1,19 @@
 # Railway Project Hub Changelog
 
+## 2026-09-26 — ReturnReview deployment revision marker declared
+
+Application: ReturnReview (App 02)
+
+Declared non-secret backend-only variable:
+- `RETURNREVIEW_DEPLOY_REVISION`
+
+Purpose:
+- record the intended Git revision for an explicit production deployment
+- allow a deployment-triggering variable update without changing ReturnReview application behavior
+- the application ignores this variable via Pydantic extra-field handling
+
+No secret, domain, database, service count, or unrelated resource changes are introduced by this declaration.
+
 ## 2026-09-25 — ReturnReview lightweight CV runtime declared
 
 Application: ReturnReview (App 02)
