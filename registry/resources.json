@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-25",
+  "updated_at": "2026-09-26",
   "projects": [
     {
       "owner_app": "return_review",
@@ -30,6 +30,7 @@
         "RETURNREVIEW_DATABASE_SCHEMA",
         "RETURNREVIEW_DATABASE_URL",
         "RETURNREVIEW_DEMO_MODE",
+        "RETURNREVIEW_DEPLOY_REVISION",
         "RETURNREVIEW_ENV",
         "RETURNREVIEW_GEMINI_API_KEY",
         "RETURNREVIEW_GEMINI_FALLBACK_MODEL",
